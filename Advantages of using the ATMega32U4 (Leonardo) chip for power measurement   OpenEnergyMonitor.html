@@ -1,0 +1,958 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0043)http://openenergymonitor.org/emon/node/2542 -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr" class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Advantages of using the ATMega32U4 (Leonardo) chip for power measurement | OpenEnergyMonitor</title>
+  
+<link rel="shortcut icon" href="http://openenergymonitor.org/emon/sites/default/files/emon3_favicon.png" type="image/x-icon">
+  <link type="text/css" rel="stylesheet" media="all" href="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/aggregator.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/google_cse.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/node.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/defaults.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/system.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/system-menus.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/user.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/ckeditor.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/mollom.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/nice_menus.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/nice_menus_default.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/forum.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/views.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/comment.css">
+<link type="text/css" rel="stylesheet" media="all" href="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/style.css">
+<style type="text/css" media="all">@import "/emon/sites/all/themes/emon3/user_bar.css";</style>
+  <script type="text/javascript" async="" src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/ga.js"></script><script type="text/javascript" src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/jquery.js"></script>
+<script type="text/javascript" src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/drupal.js"></script>
+<script type="text/javascript" src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/googleanalytics.js"></script>
+<script type="text/javascript" src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/superfish.js"></script>
+<script type="text/javascript" src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/jquery.bgiframe.min.js"></script>
+<script type="text/javascript" src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/jquery.hoverIntent.minified.js"></script>
+<script type="text/javascript" src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/nice_menus.js"></script>
+<script type="text/javascript" src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/tableheader.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/emon/", "googleanalytics": { "trackOutbound": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip" }, "nice_menus_options": { "delay": 800, "speed": 1 } });
+//--><!]]>
+</script>
+  <script type="text/javascript"> </script>
+</head>
+
+<body class="tableHeader-processed">
+
+<div id="box">
+
+<table border="0" cellpadding="0" cellspacing="0" id="header">
+  <tbody><tr>
+    <td id="logo">
+       <h1 class="site-name"><a href="http://openenergymonitor.org/emon/" title="Home">OpenEnergyMonitor</a></h1>    </td>
+    <td id="menu">
+      
+      <ul class="links" id="navlist"><li class="menu-254 first"><a href="http://openenergymonitor.org/emon/vision" title="The OpenEnergyMonitor Vision">About</a></li>
+<li class="menu-198"><a href="http://openenergymonitor.org/emon/opensustech" title="Building upon the work and ideas of many people">Open source</a></li>
+<li class="menu-146"><a href="http://openenergymonitor.org/emon/people" title="People">People</a></li>
+<li class="menu-199"><a href="http://openenergymonitor.blogspot.com/" title="">Blog</a></li>
+<li class="menu-1073"><a href="http://shop.openenergymonitor.com/" title="">Shop</a></li>
+<li class="menu-1051"><a href="http://openenergymonitor.org/emon/forum" title="">Forums </a></li>
+<li class="menu-833 last"><a href="http://github.com/openenergymonitor" title="Software repositories for OpenEnergyMonitor project">GitHub</a></li>
+</ul>      <form action="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor.html" accept-charset="UTF-8" method="post" id="search-theme-form">
+<div><div id="search" class="container-inline">
+  <div class="form-item" id="edit-search-theme-form-1-wrapper">
+ <label for="edit-search-theme-form-1">Search this site: </label>
+ <input type="text" maxlength="128" name="search_theme_form" id="edit-search-theme-form-1" size="15" value="" title="Enter the terms you wish to search for." class="form-text">
+</div>
+<input type="submit" name="op" id="edit-submit-1" value="Search" class="form-submit">
+<input type="hidden" name="form_build_id" id="form-fe040cea8ed854a7a24e5d95bab8fe95" value="form-fe040cea8ed854a7a24e5d95bab8fe95">
+<input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form">
+</div>
+
+</div></form>
+      
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><div></div></td>
+</tr>
+</tbody></table>
+<!--<div style="background-color:#444444; border-top: 1px solid #888; height:32px;">-->
+  <div class="block block-nice_menus" id="block-nice_menus-1">
+    <h2 class="title"></h2>
+    <div class="content"><ul class="nice-menu nice-menu-down sf-js-enabled" id="nice-menu-1"><li class="menu-1041 menu-path-openenergymonitororg-emon-guide first  odd "><a href="http://openenergymonitor.org/emon/guide" title="">Get started</a></li>
+<li class="menu-1042 menu-path-openenergymonitororg-emon-Modules even "><a href="http://openenergymonitor.org/emon/Modules" title="">Modules</a></li>
+<li class="menu-1043 menu-path-openenergymonitororg-emon-buildingblocks odd "><a href="http://openenergymonitor.org/emon/buildingblocks" title="">Building Blocks</a></li>
+<li class="menu-1044 menuparent menu-path-openenergymonitororg-emon-community even "><a href="http://openenergymonitor.org/emon/community" title="">Community</a><ul style="visibility: hidden; display: none;"><li class="menu-1052 menu-path-openenergymonitororg-emon-forum first  odd "><a href="http://openenergymonitor.org/emon/forum" title="">Forums </a></li>
+<li class="menu-1088 menu-path-aggregator-categories-4 even  last "><a href="http://openenergymonitor.org/emon/aggregator/categories/4" title="Blog feed from OpenEnergyMonior community members">Blog feed</a></li>
+</ul>
+</li>
+<li class="menu-1122 menu-path-node-751 odd "><a href="http://openenergymonitor.org/emon/labs" title="Labs">Labs</a></li>
+<li class="menu-1393 menu-path-wikiopenenergymonitororg- even "><a href="http://wiki.openenergymonitor.org/" title="Technical Documentation Wiki ">Wiki</a></li>
+<li class="menu-1590 menu-path-Http--emoncmsorg odd  last "><a href="http://emoncms.org/" title="open-source web-app for processing, logging and visualising energy, temperature and other environmental data">Emoncms</a></li>
+</ul>
+</div>
+ </div>
+
+<table border="0" cellpadding="0" cellspacing="0" id="content">
+  <tbody><tr>
+        <td valign="top">
+            <div id="main">
+        <div class="breadcrumb"><a href="http://openenergymonitor.org/emon/">Home</a> » <a href="http://openenergymonitor.org/emon/forum">Forums</a> » <a href="http://openenergymonitor.org/emon/forum/4">Hardware</a></div>     
+        <div class="tabs"></div>
+                          <div class="node">
+
+    
+    
+          <div class="comment">
+                <h3 class="title" style="">Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+        <span class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/1824" title="View user profile.">MartinR</a> on Thu, 04/07/2013 - 13:35</span>
+        <div class="content"><p>Several people have pointed out that the Leonardo board has better analogue design than other Arduino boards but another advantage of this board is that it uses the ATMega32U4 chip. One advantage of this chip is that it has built-in USB capability, so there is no need for the FTDI adaptor, but it also has a much more flexible analogue-to-digital converter than the one used in the ATMega328.</p>
+<p>The main improvements to the ADC are:</p>
+<p><strong>1</strong>. differential input capability<br>
+	<strong>2.</strong> programmable gain<br>
+	<strong>3</strong>. 2.56V internal reference<br>
+	<strong>4</strong>. high speed mode<br>
+	<strong>5</strong>. more inputs</p>
+<p>The big advantage of <strong>1</strong> is that it does away with the need for DC offset removal since the ADC directly outputs positive and negative values. It also means that the input bias circuitry is far less important since all it needs to do is ensure that the ADC inputs stay within the 0-Vcc range. There is no problem with sharing a simple resistive divider between all inputs. In differential mode the ADC input range is –AREF to +AREF.</p>
+<p>The gain options are x1, x10, x40 and x200. This means that if x1 is chosen to measure the normal maximum current of 100A, then the other ranges provide maximum values of 10A, 2.5A and 0.5A respectively.</p>
+<p>The advantage of <strong>3</strong> is that it does away with the need to use AVCC for the voltage reference and therefore the need to measure VCC when running on batteries. Using this reference in differential mode means that the peak-to-peak input voltage can theoretically be up to 5.12V regardless to the VCC supply voltage, although the inputs still have to remain within the 0-Vcc range.</p>
+<p><strong>4</strong> allows the ADC clock to run at 250kHz without any loss of resolution (but with a slight increase in power consumption). This is significant because differential mode is slower than single-ended mode due to the need to allow time for the internal amplifier to settle after changing the input selection. With careful design it is still possible to measure voltage and current at 50 times per mains cycle though.</p>
+<p>Apart from this reduction in speed, the other disadvantage of differential mode is some loss of resolution but that has to be considered in context. For example, at 200x gain the claimed resolution is 7 bits but this still represents significantly better voltage resolution than the current emon design. With AREF at 5V and 10-bit ADC resolution, each ADC step of the current design is 4.88mV. With the same AREF in differential mode with x200 gain and an effective resolution of 7 bits each ADC step is 195µV, or a 25x improvement in sensitivity.</p>
+<p>I have created a modified version of EmonLib, called EmonLibDiff which makes use of the ATMega32U4 differential modes. The voltage function is the same but the pin options are only 0-3 and 5 as A4 is used as the negative input to the differential amplifier. The value for PHASECAL will also be slightly different due to timing changes. The current function has an additional gain parameter which may be 1,10,40 or 200 and here the pin options are restricted to 0-3. <strong>This library will only work with the ATMega32U4 chip.</strong></p>
+<p>Apart from the need to add an analogReadDiff() function, the library is simpler than the standard one due to the removal of the high pass filters.</p>
+<p>I have modified the library current only and voltage+current examples to work with the differential library, and I have also included an example of auto-ranging current only measurement.</p>
+<p>Using this library it is possible to build a current-only power meter using only a Leonardo board, a CT and a single resistor as shown here..</p>
+<p><img alt="" src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/one_resistor_power_meter.png" style="width: 357px; height: 233px;"></p>
+<p>By connecting the negative amplifier input to the 2.56V of AREF we can keep the input roughly centred without using any components.&nbsp; It’s also possible to build a current and voltage version using just 3 resistors.</p>
+<table class="sticky-header" style="position: fixed; top: 0px; width: 124px; left: 323px; visibility: hidden;"><thead><tr><th style="width: 68.0625px;">Attachment</th><th style="width: 32.0625px;">Size</th> </tr></thead></table><table id="attachments" class="sticky-enabled sticky-table">
+ <thead class="tableHeader-processed"><tr><th>Attachment</th><th>Size</th> </tr></thead>
+<tbody>
+ <tr class="odd"><td><a href="http://openenergymonitor.org/emon/sites/default/files/EmonLibDiff.zip">EmonLibDiff.zip</a></td><td>5.45 KB</td> </tr>
+</tbody>
+</table>
+</div>
+      </div>
+    
+    <div class="links">» <ul class="links inline"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>  </div>
+<div id="comments">
+  <a id="comment-13393"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/3016" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="dBC&#39;s picture" title="dBC&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/3016" title="View user profile.">dBC</a> on Thu, 04/07/2013 - 14:23.</div>
+    <div class="content">
+     <p>Without using any of the new features, were you able to get a feel for whether or not the LC decoupling on AVCC made much difference to the noise levels?</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13399"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/1824" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="MartinR&#39;s picture" title="MartinR&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/1824" title="View user profile.">MartinR</a> on Thu, 04/07/2013 - 16:47.</div>
+    <div class="content">
+     <p>I didn't try the Leonardo in single-ended mode but my guess is that it won't make much difference. I did try adding an inductor in series with the AVCC feed on a shop board and I couldn't detect any improvement.</p>
+<p>You are always going to get some toggling of the LSB and for a standard emonTx the LSB permanently on would look like 86W so it doesn't take that many toggles to get the few Watts that you normally see.</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13427"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/3016" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="dBC&#39;s picture" title="dBC&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/3016" title="View user profile.">dBC</a> on Fri, 05/07/2013 - 02:17.</div>
+    <div class="content">
+     <p><em>By connecting the negative amplifier input to the 2.56V of AREF we can keep the input roughly centred without using any components.</em></p>
+<p>Are you sure that's allowed? &nbsp;I think they run the internally selected Vref out to AREF so you can stick a capacitor on it for decoupling, but generally it's a very high impedance source, so I don't think you can load it up with anything.</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13429"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/380" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/picture-380.jpg" alt="mharizanov&#39;s picture" title="mharizanov&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/380" title="View user profile.">mharizanov</a> on Fri, 05/07/2013 - 07:27.</div>
+    <div class="content">
+     <p>That is interesting, with the&nbsp;YHDC 30 A c.t. that has internal burden resistor, it would mean current measurement with no external components at all :)</p>
+<p>I am subscribing to the topic</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13430"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/1824" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="MartinR&#39;s picture" title="MartinR&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/1824" title="View user profile.">MartinR</a> on Fri, 05/07/2013 - 07:57.</div>
+    <div class="content">
+     <p>dBC:<em> Are you sure that's allowed?&nbsp; I think they run the internally selected Vref out to AREF so you can stick a capacitor on it for decoupling, but generally it's a very high impedance source, so I don't think you can load it up with anything</em>.</p>
+<p>It's not ideal, due to the risk of adding noise to AREF, but there is no load since the CT is isolated and therefore floating wrt AREF so you only have the tiny input&nbsp;current of the analogue inputs. I've tried this with both current only and current+voltage and it seems to work fine, only showing about 1.5W of noise in x200 mode.</p>
+<p>mharizanov:&nbsp;&nbsp;<em>That is interesting, with the YHDC 30 A c.t. that has internal burden resistor, it would mean current measurement with no external components at all :)</em></p>
+<p>Even better - I like your thinking :)</p>
+<p>It would be interesting to repeat the accuracy tests with this CPU since using auto-ranging it can accurately measure down to a few Watts and all the way up to 25kW.</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13431"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/3016" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="dBC&#39;s picture" title="dBC&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/3016" title="View user profile.">dBC</a> on Fri, 05/07/2013 - 08:12.</div>
+    <div class="content">
+     <p><em>so you only have the tiny input current of the analogue inputs.</em></p>
+<p>Wouldn't they be high enough to potentially drag down AREF, right when you want it at its most stable? &nbsp; &nbsp;For best results you tend to need to drive them from a fairly low impedance source (&lt; 10K ohms from memory).</p>
+<p>And I know the 2560 datasheet says if you want to measure the bandgap voltage at AREF use a high impedance voltmeter.</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13443"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/1824" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="MartinR&#39;s picture" title="MartinR&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/1824" title="View user profile.">MartinR</a> on Fri, 05/07/2013 - 14:56.</div>
+    <div class="content">
+     <p>We are driving the inputs with a low impedance, 33 Ohm, but this is irrelevant anyway as the 10k recommendation only applies to single-ended inputs, when the pin is driving the sample and hold directly. In differential mode the internal amplifier is driving the sample and hold so the external driving impedance can be much higher.</p>
+<p>The impedance seen by AREF is much higher too, just the analogue inputs to the internal amplifier, and I'm sure these qualify as "a high impedance voltmeter".</p>
+<p>This is a very minor issue anyway. The reason for this thread was to promote discussion of&nbsp;the merits of having an ADC with differential inputs and gain. The suggestion of using AREF to bias the inputs was just to say it was possible and it works. It's just as easy to bias all the inputs with a single pair of resistors.</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13444"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/3016" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="dBC&#39;s picture" title="dBC&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/3016" title="View user profile.">dBC</a> on Fri, 05/07/2013 - 18:08.</div>
+    <div class="content">
+     <p><em>In differential mode the internal amplifier is driving the sample and hold so the external driving impedance can be much higher.</em></p>
+<p>Yep, but still not that high, according to the datasheet:</p>
+<p><em>If differential gain channels are used, the input circuitry looks somewhat different, although<br>
+	source impedances of a few hundred kΩ or less is recommended.</em></p>
+<p>&nbsp;</p>
+<p><em>The impedance seen by AREF is much higher too, just the analogue inputs to the internal amplifier, and I'm sure these qualify as "a high impedance voltmeter".</em></p>
+<p>I would imagine that depends on their amplifier. &nbsp;I used to think the 8M input impedance on my voltmeter classified as a high impedance voltmeter, until I went to measure the output of a pH probe with it. &nbsp;You really need an op-amp with JFET-inputs to measure one of them. &nbsp; &nbsp;The datasheet quote above makes me think their op-amp inputs aren't hugely high impedance. &nbsp; And that they specifically call out for a <strong>high impedance</strong> voltmeter to be used when measuring AREF makes me think it has very little ability to drive.</p>
+<p>&nbsp;</p>
+<p><em>It's just as easy to bias all the inputs with a single pair of resistors.</em></p>
+<p>Exactly. &nbsp;Personally, for the cost of 2 resistors I'd be staying well away from AREF. &nbsp;I think your design above is well outside the intended purpose of AREF, but your mileage may vary.</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13451"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/3016" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="dBC&#39;s picture" title="dBC&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/3016" title="View user profile.">dBC</a> on Sat, 06/07/2013 - 00:42.</div>
+    <div class="content">
+     <p>Actually, the datasheet is pretty clear:</p>
+<p><em>Note that Vref is a high&nbsp;impedant source, and only a capacitive load should be connected in a system.</em></p>
+<p>My reading of that is that it's "for internal use only". &nbsp;They've run it out to a pin so you can decouple it for them, but putting any load on it could at the very least degrade the A/D performance, and worst case, potentially damage the device over time. &nbsp; Putting a high impedance voltmeter on it in the lab while debugging is a lot different from permanently wiring it into an op-amp input.&nbsp;</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13453"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/924" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="Robert Wall&#39;s picture" title="Robert Wall&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/924" title="View user profile.">Robert Wall</a> on Sat, 06/07/2013 - 02:10.</div>
+    <div class="content">
+     <p><em>They've run it out to a pin so you can decouple it for them </em>because they can't fabricate an on-chip capacitor big enough,</p>
+<p>FTFY.</p>
+<p>I guess you'd be OK to bootstrap it though.</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13456"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/1824" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="MartinR&#39;s picture" title="MartinR&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/1824" title="View user profile.">MartinR</a> on Sat, 06/07/2013 - 08:14.</div>
+    <div class="content">
+     <p>I was hoping this thread would provoke a debate about the merits of using a chip that does away with the need for high-pass filters, measuring battery voltage and the FTDI adaptor and solves the issue of measuring a wide power range, rather than nitpicking about an idle comment at the end of the post!</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13459"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/924" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="Robert Wall&#39;s picture" title="Robert Wall&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/924" title="View user profile.">Robert Wall</a> on Sat, 06/07/2013 - 12:49.</div>
+    <div class="content">
+     <p><em>"... the merits of using a chip that does away with the need for high-pass filters, measuring battery voltage and the FTDI adaptor and solves the issue of measuring a wide power range."</em></p>
+<p>I thought that was self-evident. But from the OEM Shop's point of view, I can see that developing a brand new design and getting the manufacturing process under way is not trivial, and let's not lose sight of the fact that for many people - even the minority (but growing minority, I suspect) who are keen to monitor energy usage, a good indication is often good enough. The various energy suppliers' schemes, devices that estimate energy purely from a measurement of current, etc are witness to that. The OEM / Arduino design is clearly better than much that is on offer, equally clearly improvement in the design and the choice of transducers is possible.</p>
+<p>Glyn was working on an emonTx with switched gain current inputs (exactly like the Atmel prototype) but that seems to be on the back burner for now. Maybe that design should mutate and evolve and G&amp;T (and you!) should be thinking in terms of an EmonTxPro, with improved performance, more accurate transducers and ready expansion to suit the North American mains supply?</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13464"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/1824" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="MartinR&#39;s picture" title="MartinR&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/1824" title="View user profile.">MartinR</a> on Sat, 06/07/2013 - 17:57.</div>
+    <div class="content">
+     <p>From what I remember of Glyn's design it used external amplifiers and analogue switches and was deemed too costly to build and consequently was shelved, as you say,&nbsp;in favour of a cheaper alternative. I don't know if Glyn was aware of the enhancements to the ADC in the ATMega32U4 chip but maybe he could have used that in his design instead and produced a cheaper, simpler&nbsp;solution with similar features. The whole point in suggesting the ATMega32U4 is that it is a minimal cost increase over the SMD version of the ATMega328 and probably a cost saving if you take into account the cost of the FTDI adaptor.</p>
+<p>I searched this site and couldn't find any mention of the ADC enhancements so it was reasonable for me to assume that they weren't being considered for future designs and so it would be worthwhile discussing them.</p>
+<p>Anyway, I've learned my lesson and will keep my ideas to myself in future.</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13465"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/924" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="Robert Wall&#39;s picture" title="Robert Wall&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/924" title="View user profile.">Robert Wall</a> on Sat, 06/07/2013 - 18:43.</div>
+    <div class="content">
+     <p><em>"Anyway, I've learned my lesson and will keep my ideas to myself in future."</em>&nbsp; I don't see why you should be thinking that. I at least recognise that you've made significant contributions with the 3-phase monitor that I've pointed many people towards, and the interrupt-driven code, and I think a super-emonTx would certainly fill a niche amongst the members of the community who need something better than the standard version, especially at low powers where noise and resolution are significant problems. Without knowing too many details, I see no reason why it could not replace the emonTx V2, even though the V3 goes some way towards alleviating this by having a 4th low-current input. All I was saying is the V2 has got lots of momentum behind it.&nbsp;</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13468"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/3016" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="dBC&#39;s picture" title="dBC&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/3016" title="View user profile.">dBC</a> on Sun, 07/07/2013 - 06:17.</div>
+    <div class="content">
+     <p><em>Anyway, I've learned my lesson and will keep my ideas to myself in future.</em></p>
+<p>But then you wouldn't have learned you're not allowed to hang stuff off AREF ;-).</p>
+<p>But seriously, there are lots of different designs floating around in here. &nbsp;Some use AVRs, some use PICs, some use various versions of the s/w published here, while some of us use dedicated front-end energy metering ICs. &nbsp;The more we all share our experiences, the better everyone's design becomes.</p>
+<p>I've just been playing around with "AVR121: Enhancing ADC resolution by oversampling" with stunning results. &nbsp; I've now got my 2560 ADC effectively giving me 14-bit conversions. &nbsp;The ADC in the 2560 seems similar to the one in your Leonardo, but with less gain options. &nbsp;It helps that I only use it to measure very slow moving values (rainwater tank levels), and I've got all the time in the world to oversample&nbsp;because all the time-sensitive stuff is done in dedicated ICs.</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13470"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/1824" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="MartinR&#39;s picture" title="MartinR&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/1824" title="View user profile.">MartinR</a> on Sun, 07/07/2013 - 12:36.</div>
+    <div class="content">
+     <p><em>But then you wouldn't have learned you're not allowed to hang stuff off AREF ;-).</em></p>
+<p>Yeah, right, I can read you know! When interpreting data sheets, or any other set of rules for that matter, you need to understand the reason behind the requirement to see if it's applicable&nbsp;to your particular case. Here we're dealing with a high impedance signal that Atmel don't want you to put any significant load onto and probably don't want to have to constrain any future designs to a particular impedance, so they don't specify one. Clearly there is an acceptable load impedance which will not disturb the reference though</p>
+<p>Just for you I tried measuring a 1.5V battery against the 2.56V reference while adding and removing the connection to A1 It made no difference to the ADC value and nor did measuring the reference with my Fluke multimeter, so the impedance can't be that high.</p>
+<p><em>But seriously, there are lots of different designs floating around in here.&nbsp; Some use AVRs, some use PICs, some use various versions of the s/w published here, while some of us use dedicated front-end energy metering ICs.&nbsp; The more we all share our experiences, the better everyone's design becomes.</em></p>
+<p>Yes I agree, but most people who have posted details of anything novel have drifted away either because there were no responses to their thread or due to derogatory comments from the keyboard warriors.</p>
+<p><em>I've just been playing around with "AVR121: Enhancing ADC resolution by oversampling" with stunning results.&nbsp;&nbsp; I've now got my 2560 ADC effectively giving me 14-bit conversions.&nbsp; The ADC in the 2560 seems similar to the one in your Leonardo, but with less gain options.&nbsp; It helps that I only use it to measure very slow moving values (rainwater tank levels), and I've got all the time in the world to oversample because all the time-sensitive stuff is done in dedicated ICs</em>.</p>
+<p>Yes, I looked at that too but, as you say, only useful for slowly varying signals.</p>
+<p>Robert - my comment wasn't in direct response to your post. You've been incredibly helpful to me, and almost everyone else on here, and I've learned a lot from you, for which I'm very grateful. I think it's just finally dawned on me that this site is really just supporting the shop products and there's next to no real interest in pushing the boundaries, which is where my interest lies.</p>
+<p>&nbsp;</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13471"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/3903" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="michal&#39;s picture" title="michal&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/3903" title="View user profile.">michal</a> on Sun, 07/07/2013 - 13:10.</div>
+    <div class="content">
+     <p>Please don't stop trying to push the boundaries.</p>
+<p>Although I'm only a beginner to electronics and energy monitory, my expectations lie beyond the boundaries (you could say I'm slightly OCD) and any attempt to further accuracy, simplicity or performance of energy monitoring is highly appreciated.</p>
+<p>I'm sure there are many other like me who also share their appreciation. Challenging accepted ideas always draws opposition, but it's also one of the best ways of making significant progress.</p>
+<p>Thank you for your contributions Martin, and please don't be discouraged or offended. I'm sure most people are just playing devils'&nbsp;advocate and wanting you to prove them wrong.</p>
+<p>Regards,</p>
+<p>Michal</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13473"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/3016" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="dBC&#39;s picture" title="dBC&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/3016" title="View user profile.">dBC</a> on Sun, 07/07/2013 - 13:20.</div>
+    <div class="content">
+     <p><em>Clearly there is an acceptable load impedance which will not disturb the reference though</em></p>
+<p>Sure, but as you say it's undocumented. &nbsp;And the input impedance of the op-amp is barely documented. &nbsp;There's also the risk of introducing noise as you conceded above. &nbsp; &nbsp;Your experiments suggest neither issue is a big problem in this case, but designs based on empirical "I tried it and it works fine" &nbsp;often turn out to be less robust in all the varying real-world environments they're likely to end up in. &nbsp;Sticking to the datasheet rules even when you understand the reason behind them, is best practice, particularly so in this case when the win (2 less resistors) seemed so trivial compared to the potential risks.</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13474"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/1824" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="MartinR&#39;s picture" title="MartinR&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/1824" title="View user profile.">MartinR</a> on Sun, 07/07/2013 - 14:03.</div>
+    <div class="content">
+     <p>Thanks, Michal that was a thoughtful and well-worded post, much appreciated.</p>
+<p>dBC: You are in danger of becoming a keyboard warrior yourself with your patronising tone and constant desire to argue about a trivial side issue. I'll let you have the last word if that makes you happy but I'll leave you with this old cartoon since you reminded me of it....</p>
+<p><img alt="" src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/duty_calls.png" style="width: 300px; height: 330px;"></p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13475"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/924" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="Robert Wall&#39;s picture" title="Robert Wall&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/924" title="View user profile.">Robert Wall</a> on Sun, 07/07/2013 - 14:08.</div>
+    <div class="content">
+     <p>Thank you for that vote of thanks!&nbsp; <em>"I think it's just finally dawned on me that this site is really just supporting the shop products and there's next to no real interest in pushing the boundaries...</em>"&nbsp; I think I understand why you think that, but isn't Robin's Mk2 a most notable exception? (OK, it <em>can</em> be made with an emonTx, but the original was an Arduino.) I remain unconvinced that a schematic, parts list and maybe a pcb for the super-emonTx written up in the same format would receive no attention, especially as it would be almost automatically directly plug-in compatible with everything downstream (RPi, emonCMS), and it shouldn't involve much learning for anyone who wanted to use it or modify the code.</p>
+<p>I think what you're looking at is a matter of fear of the unknown and confidence. Anyone coming to this site will see the shop kit products and in most cases evaluate them as a proven, easy to build system that will work. Irrespective of facts, they perceive a design by an individual in a post as carrying some risk, possibly requiring knowledge and expertise they don't have and requiring effort to source all the parts, and it is that which you need to overcome, and where a full write-up will help. I'm happy to edit and nit-pick to present it in the best light if you want.</p>
+<p>[Edit]</p>
+<p>dBC posted while I was writing that. Though I'm generally with him on following data-sheet practice, one notable exception springs to mind. I understand that the very first Sinclair calculator (anyone remember that) used and exploited a function in the chip that his designers had discovered and the chip designers/manufacturer knew nothing about! (I forget the details, but I think I've got one in a box somewhere if anyone wants to play.)</p>
+<p>So pushing the boundaries can work to your advantage in a spectacular manner.</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13476"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/3016" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="dBC&#39;s picture" title="dBC&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/3016" title="View user profile.">dBC</a> on Sun, 07/07/2013 - 14:17.</div>
+    <div class="content">
+     <p><em>You are in danger of becoming a keyboard warrior yourself</em></p>
+<p>I'm sorry you feel that way.</p>
+<p><em>constant desire to argue about a trivial side issue.</em></p>
+<p>My only concern was that it was going to catch on as a good idea as indicated below:</p>
+<p><em>mharizanov:&nbsp; That is interesting, with the YHDC 30 A c.t. that has internal burden resistor, it would mean current measurement with no external components at all :)</em></p>
+<p><em>MartinR: Even better - I like your thinking :)</em></p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13478"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/924" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="Robert Wall&#39;s picture" title="Robert Wall&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/924" title="View user profile.">Robert Wall</a> on Sun, 07/07/2013 - 14:48.</div>
+    <div class="content">
+     <p>Come on chaps. Bury the hatchet and preferably not in each other's skulls. If it's been shown that in the circumstances it's not an issue, isn't that what matters? I'm quite prepared to bet that Atmel want to keep their options open to change the design internally that might result in a lower output capability, and that's their reason for specifying 'capacitor only'. Or maybe they're worried about squirting noise in?</p>
+<p>If you want to accept the risk that at some time in the future it will fail to work, or degrade performance unacceptably, or maybe reduce the life of the chip, then that's a valid engineering compromise decision that needs to be made; and if you do go ahead and use it, then (if it's a published design) you need to warn people or make periodic checks and change the design if it becomes an issue. And if it's just for yourself, you live with it until it dies.</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13481"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/3903" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="michal&#39;s picture" title="michal&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/3903" title="View user profile.">michal</a> on Sun, 07/07/2013 - 15:33.</div>
+    <div class="content">
+     <p>Perhaps the solution here shouldn't become the defacto product, but what are we really risking here? Potentially less than 10 dollars? It just so happens I have a couple of Teensy 2.0's that would be ideally suited.</p>
+<p>If you want to add resistors or capacitors then that's fine too. To each his own.</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+<a id="comment-13494"></a>
+  <div class="comment comment-published">
+    <div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/3016" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="dBC&#39;s picture" title="dBC&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div>
+
+<h3 class="title" style="padding-bottom:5px">Re: Advantages of using the ATMega32U4 (Leonardo) chip for power measurement</h3>
+
+    <div class="submitted">Submitted by <a href="http://openenergymonitor.org/emon/user/3016" title="View user profile.">dBC</a> on Sun, 07/07/2013 - 23:19.</div>
+    <div class="content">
+     <p>Fair points. &nbsp;When I'm at 38,000' in an A380&nbsp;I hope the engineers didn't take any liberties with the datasheets, but to apply the same standards to the home hobbyist market is pretty silly. &nbsp;The "risks" I've been banging on about are pretty trivial, thanks for the perspective Robert and Michal.</p>
+<p>Apologies MartinR. &nbsp;I fear I crossed the line from design reviewer to evangelical preacher. &nbsp;You've clearly made an informed design decision, and that should have been the end of it.</p>
+         </div>
+    <div class="links">» <ul class="links"><li class="comment_forbidden first last"><span><a href="http://openenergymonitor.org/emon/user/login?destination=node%2F2542%23comment-form">Login</a> or <a href="http://openenergymonitor.org/emon/user/register?destination=node%2F2542%23comment-form">register</a> to post comments</span></li>
+</ul></div>
+  </div>
+</div>
+      
+              </div>
+    </td>
+    <td id="sidebar-right">
+        <div class="block block-user" id="block-user-0">
+    <h2 class="title">User login</h2>
+    <div class="content"><form action="http://openenergymonitor.org/emon/node/2542?destination=node%2F2542" accept-charset="UTF-8" method="post" id="user-login-form">
+<div><div class="form-item" id="edit-name-wrapper">
+ <label for="edit-name">Username: <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" maxlength="60" name="name" id="edit-name" size="15" value="" class="form-text required">
+</div>
+<div class="form-item" id="edit-pass-wrapper">
+ <label for="edit-pass">Password: <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" name="pass" id="edit-pass" maxlength="60" size="15" class="form-text required">
+</div>
+<input type="submit" name="op" id="edit-submit" value="Log in" class="form-submit">
+<div class="item-list"><ul><li class="first"><a href="http://openenergymonitor.org/emon/user/register" title="Create a new user account.">Create new account</a></li>
+<li class="last"><a href="http://openenergymonitor.org/emon/user/password" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" id="form-604803722d4f273597257cc7963e6135" value="form-604803722d4f273597257cc7963e6135">
+<input type="hidden" name="form_id" id="edit-user-login-block" value="user_login_block">
+
+</div></form>
+</div>
+ </div>
+  <div class="block block-menu" id="block-menu-secondary-links">
+    <h2 class="title">Site Map</h2>
+    <div class="content"><ul class="menu"><li class="collapsed first"><a href="http://openenergymonitor.org/emon/guide" title="OpenEnergyMonitor Guide">OpenEnergyMonitor Guide</a></li>
+<li class="collapsed"><a href="http://openenergymonitor.org/emon/Modules" title="Modules">Modules</a></li>
+<li class="collapsed"><a href="http://openenergymonitor.org/emon/buildingblocks" title="Building Blocks">Building Blocks</a></li>
+<li class="collapsed"><a href="http://openenergymonitor.org/emon/community%20" title="Community">Community</a></li>
+<li class="collapsed last"><a href="http://openenergymonitor.org/emon/archive" title="Archive and Unsorted">Archive and Unsorted</a></li>
+</ul></div>
+ </div>
+  <div class="block block-views" id="block-views-tracker-block_1">
+    <h2 class="title">Active forum posts</h2>
+    <div class="content"><div class="view view-tracker view-id-tracker view-display-id-block_1 view-dom-id-1">
+    
+  
+  
+      <div class="view-content">
+      <div class="item-list">
+    <ul>
+          <li class="views-row views-row-1 views-row-odd views-row-first">  
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://openenergymonitor.org/emon/node/2866">SOLVED: dashboard in local only displays if I am logged on</a></span>
+  </div>
+  
+  <div class="views-field-last-updated">
+                <span class="field-content"><em>1 hour 9 min</em> ago</span>
+  </div>
+</li>
+          <li class="views-row views-row-2 views-row-even">  
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://openenergymonitor.org/emon/node/3249">Temperature Sensor Enclosures for Wall Mounting</a></span>
+  </div>
+  
+  <div class="views-field-last-updated">
+                <span class="field-content"><em>3 hours 9 min</em> ago</span>
+  </div>
+</li>
+          <li class="views-row views-row-3 views-row-odd">  
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://openenergymonitor.org/emon/node/3220">Add data from csv file to emoncms</a></span>
+  </div>
+  
+  <div class="views-field-last-updated">
+                <span class="field-content"><em>10 hours 39 min</em> ago</span>
+  </div>
+</li>
+          <li class="views-row views-row-4 views-row-even">  
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://openenergymonitor.org/emon/node/3181">Graphs not working since recent site problem</a></span>
+  </div>
+  
+  <div class="views-field-last-updated">
+                <span class="field-content"><em>15 hours 25 min</em> ago</span>
+  </div>
+</li>
+          <li class="views-row views-row-5 views-row-odd">  
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://openenergymonitor.org/emon/node/2164">Battery powered emonTX</a></span>
+  </div>
+  
+  <div class="views-field-last-updated">
+                <span class="field-content"><em>20 hours 10 min</em> ago</span>
+  </div>
+</li>
+          <li class="views-row views-row-6 views-row-even">  
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://openenergymonitor.org/emon/node/2637">Emon package :</a></span>
+  </div>
+  
+  <div class="views-field-last-updated">
+                <span class="field-content"><em>21 hours 45 min</em> ago</span>
+  </div>
+</li>
+          <li class="views-row views-row-7 views-row-odd">  
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://openenergymonitor.org/emon/node/3238">New hardware for Mk2 PV Router</a></span>
+  </div>
+  
+  <div class="views-field-last-updated">
+                <span class="field-content"><em>1 day 34 min</em> ago</span>
+  </div>
+</li>
+          <li class="views-row views-row-8 views-row-even">  
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://openenergymonitor.org/emon/node/2218">do we have a good programmer?</a></span>
+  </div>
+  
+  <div class="views-field-last-updated">
+                <span class="field-content"><em>1 day 1 hour</em> ago</span>
+  </div>
+</li>
+          <li class="views-row views-row-9 views-row-odd">  
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://openenergymonitor.org/emon/node/3248">Using Automagic on Android</a></span>
+  </div>
+  
+  <div class="views-field-last-updated">
+                <span class="field-content"><em>1 day 2 hours</em> ago</span>
+  </div>
+</li>
+          <li class="views-row views-row-10 views-row-even views-row-last">  
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://openenergymonitor.org/emon/node/3247">Getting Edimax EW-7811UN 150Mbps Wireless Nano USB Adapter to work?</a></span>
+  </div>
+  
+  <div class="views-field-last-updated">
+                <span class="field-content"><em>1 day 2 hours</em> ago</span>
+  </div>
+</li>
+      </ul>
+</div>    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="http://openenergymonitor.org/emon/tracker">
+    more  </a>
+</div>
+  
+  
+  
+</div> </div>
+ </div>
+  <div class="block block-aggregator" id="block-aggregator-feed-1">
+    <h2 class="title">Latest Blog posts</h2>
+    <div class="content"><div class="item-list"><ul><li class="first"><a href="http://openenergymonitor.blogspot.com/2013/11/adding-control-to-emoncms-rfm12b-packet.html">Adding control to emoncms: RFM12b Packet Generator</a>
+</li>
+<li><a href="http://openenergymonitor.blogspot.com/2013/11/2013-christmas-ordering-info-royal-mail.html">2013 Christmas Ordering Info - Royal Mail Last Posting Dates for Delivery before Christmas</a>
+</li>
+<li><a href="http://openenergymonitor.blogspot.com/2013/11/new-hardware-is-in-shop-and-starting-to.html">New hardware is in the shop and starting to ship this week</a>
+</li>
+<li><a href="http://openenergymonitor.blogspot.com/2013/11/hardware-manufacture-begins-part-2.html">Hardware Manufacture Begins! Part 2: emonTx V3 and emonTx Arduino Shield SMT</a>
+</li>
+<li class="last"><a href="http://openenergymonitor.blogspot.com/2013/11/hardware-manufacture-begins-part-1.html">Hardware Manufacture Begins! Part 1: emonTH Temperature and Humidity Node</a>
+</li>
+</ul></div><div class="more-link"><a href="http://openenergymonitor.org/emon/aggregator/sources/1" title="View this feed&#39;s recent news.">more</a></div></div>
+ </div>
+  <div class="block block-block" id="block-block-1">
+    <h2 class="title"></h2>
+    <div class="content"><script src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/widget.js"></script><script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 6000,
+  width: 181,
+  height: 300,
+  theme: {
+    shell: {
+      background: '#6699cc',
+      color: '#000000'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#000000',
+      links: '#6699cc'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: false,
+    live: false,
+    hashtags: true,
+    timestamp: true,
+    avatars: false,
+    behavior: 'all'
+  }
+}).render().setUser('Openenergymon').start();
+</script></div>
+ </div>
+  <div class="block block-views" id="block-views-avatar-block_1">
+    <h2 class="title">Latest members online</h2>
+    <div class="content"><div class="view view-avatar view-id-avatar view-display-id-block_1 view-dom-id-2">
+    
+  
+  
+      <div class="view-content">
+      <table class="views-view-grid col-4">
+  <tbody>
+                <tr class="row-1 row-first">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/3159" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="seatrout&#39;s picture" title="seatrout&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+                  <td class="col-2">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/3928" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="PatKenn&#39;s picture" title="PatKenn&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+                  <td class="col-3">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/1164" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/picture-1164.jpg" alt="Simon&#39;s picture" title="Simon&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+                  <td class="col-4 col-last">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/2888" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="Tinbum&#39;s picture" title="Tinbum&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-2">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/4739" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/picture-4739.jpg" alt="rjoem&#39;s picture" title="rjoem&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+                  <td class="col-2">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/4815" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="Moix&#39;s picture" title="Moix&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+                  <td class="col-3">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/4816" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="andreva&#39;s picture" title="andreva&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+                  <td class="col-4 col-last">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/1994" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="RobertK&#39;s picture" title="RobertK&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-3">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/924" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="Robert Wall&#39;s picture" title="Robert Wall&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+                  <td class="col-2">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/4651" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="woody1&#39;s picture" title="woody1&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+                  <td class="col-3">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/1857" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="heli-flyer&#39;s picture" title="heli-flyer&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+                  <td class="col-4 col-last">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/956" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/picture-956.jpg" alt="calypso_rae&#39;s picture" title="calypso_rae&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-4">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/3677" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="morris8cars&#39;s picture" title="morris8cars&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+                  <td class="col-2">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/4814" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="JChristensen&#39;s picture" title="JChristensen&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+                  <td class="col-3">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/1531" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/picture-1531.gif" alt="Jérôme&#39;s picture" title="Jérôme&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+                  <td class="col-4 col-last">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/4241" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="Zakke&#39;s picture" title="Zakke&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-5 row-last">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/10" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/picture-10.jpg" alt="glyn.hudson&#39;s picture" title="glyn.hudson&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+                  <td class="col-2">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/4424" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/picture-4424.gif" alt="fringui&#39;s picture" title="fringui&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+                  <td class="col-3">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/1014" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="DaveF&#39;s picture" title="DaveF&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+                  <td class="col-4 col-last">
+              
+  <div class="views-field-picture">
+                <div class="field-content"><div class="picture">
+  <a href="http://openenergymonitor.org/emon/user/4037" title="View user profile."><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/default_0.png" alt="rsegoly&#39;s picture" title="rsegoly&#39;s picture" width="50" height="50" class="imagecache imagecache-avatar"></a></div></div>
+  </div>
+          </td>
+              </tr>
+      </tbody>
+</table>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="http://openenergymonitor.org/emon/community/details%20">
+    more  </a>
+</div>
+  
+  
+  
+</div> </div>
+ </div>
+  <div class="block block-aggregator" id="block-aggregator-category-4">
+    <h2 class="title">Community Blog feed</h2>
+    <div class="content"><div class="item-list"><ul><li class="first"><a href="http://harizanov.com/2013/11/hello-world/?utm_source=rss&utm_medium=rss&utm_campaign=hello-world">Hello, world</a>
+</li>
+<li><a href="http://harizanov.com/2013/11/the-yapm-pcb-is-done/?utm_source=rss&utm_medium=rss&utm_campaign=the-yapm-pcb-is-done">The YAPM PCB is done</a>
+</li>
+<li><a href="http://jeelabs.org/2013/10/06/wrapping-up/">Wrapping up</a>
+</li>
+<li><a href="http://jeelabs.org/2013/10/05/flashback-anatomy-of-a-transmission/">Flashback – Anatomy of a transmission</a>
+</li>
+<li><a href="http://harizanov.com/2013/10/hot-water-tank-controller-project-part-2/?utm_source=rss&utm_medium=rss&utm_campaign=hot-water-tank-controller-project-part-2">Hot water tank controller project – part 2</a>
+</li>
+<li><a href="http://jeelabs.org/2013/10/04/flashback-dive-into-jeenodes/">Flashback – Dive Into JeeNodes</a>
+</li>
+<li><a href="http://optimalabs.de/2012/06/dmy-berlin-nanode/?&owa_medium=feed&owa_sid=&utm_source=rss&utm_medium=rss&utm_campaign=dmy-berlin-nanode">Workshop: Solder and hack the Nanode</a>
+</li>
+<li><a href="http://optimalabs.de/2012/05/betapitch-retrospective/?&owa_medium=feed&owa_sid=&utm_source=rss&utm_medium=rss&utm_campaign=betapitch-retrospective">betapitch: what it meant to us</a>
+</li>
+<li><a href="http://feedproxy.google.com/~r/NathanChantrell/~3/p0XXPB48g20/">Raspberry Pi Finally Arrives</a>
+</li>
+<li><a href="http://feedproxy.google.com/~r/NathanChantrell/~3/7YaegZX9WpI/">The Magic of the Boost Converter</a>
+</li>
+<li><a href="http://optimalabs.de/2012/04/pitching-at-betapitch/?&owa_medium=feed&owa_sid=&utm_source=rss&utm_medium=rss&utm_campaign=pitching-at-betapitch">We’re pitching at betapitch this thursday</a>
+</li>
+<li class="last"><a href="http://optimalabs.de/2012/04/new-logo-and-website-revamp/?&owa_medium=feed&owa_sid=&utm_source=rss&utm_medium=rss&utm_campaign=new-logo-and-website-revamp">New logo and website revamp</a>
+</li>
+</ul></div><div class="more-link"><a href="http://openenergymonitor.org/emon/aggregator/categories/4" title="View this category&#39;s recent news.">more</a></div></div>
+ </div>
+    </td>  </tr>
+</tbody></table>
+
+<div id="footer">
+  <p>Open-source tools for energy monitoring and analysis.&nbsp;This project uses the <a href="http://openenergymonitor.org/emon/node/4">GNU General Public Licence</a></p>
+    <div class="block block-node" id="block-node-0">
+    <h2 class="title">Syndicate</h2>
+    <div class="content"><a href="http://openenergymonitor.org/emon/rss.xml" class="feed-icon"><img src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/feed.png" alt="Syndicate content" title="Syndicate" width="16" height="16"></a></div>
+ </div>
+ 
+</div>
+<script type="text/javascript" src="./Advantages of using the ATMega32U4 (Leonardo) chip for power measurement   OpenEnergyMonitor_files/google_cse.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "googleCSE": { "language": "en" } });
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-10321170-3"]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();
+//--><!]]>
+</script>
+
+
+</div>
+
+
+
+</body></html>
